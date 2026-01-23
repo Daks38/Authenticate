@@ -10,8 +10,8 @@ require("./configs/db");
 
 const app = express();
 app.use(cors())
-const port = process.env.PORT;
 app.use(express.json());
+const port = process.env.PORT;
 
 
 app.get("/", (req, res) => {
