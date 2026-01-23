@@ -5,10 +5,11 @@ const authToken = require("./middleware/Auth");
 const loginRouter = require("./routes/loginRouter");
 const registerRouter = require("./routes/registerRouter");
 const cors = require('cors')
-require("./configs/db");
+const connectDB = require("./configs/db");
 
 
 const app = express();
+connectDB();
 app.use(cors())
 app.use(express.json());
 const port = process.env.PORT;
