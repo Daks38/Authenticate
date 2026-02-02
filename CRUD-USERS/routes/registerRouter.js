@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        number: parseInt(req.body.number),
+        number: req.body.number,
         password: bcrypt.hashSync(req.body.password, salt),
         isAdmin: req.body.isAdmin,
       });
