@@ -25,10 +25,10 @@ app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 app.use("/register", registerRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 //Login
-app.use("/login", loginRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/login", loginRouter)
 
 //User
-app.use("/users", authToken, router,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/users", authToken, router)
 
 app.listen(port, () => {
   console.log(`Serveur lancé sur le http://localhost:${port}`);
