@@ -7,9 +7,9 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "DAKS",
   "license": "ISC",
-  "description": "",
+  "description": "Api CRUD users JWT",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
@@ -17,7 +17,9 @@
     "js-cookie": "^3.0.5",
     "json-web-token": "^3.2.0",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.0.1"
+    "mongoose": "^9.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "dotenv": "^17.2.3",

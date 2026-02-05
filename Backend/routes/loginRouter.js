@@ -2,8 +2,46 @@ const express = require("express")
 const User = require("../models/userRegister")
 const bcrypt  = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const secretKey = process.env.SECRET_KEY
 const router = express.Router()
+
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Connecte un utilisateur
+ *     tags:
+ *       - Auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: user@email.com
+ *               password:
+ *                 type: string
+ *                 example: password123
+ *     responses:
+ *       200:
+ *         description: Utilisateur connecté avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *       401:
+ *         description: Identifiants invalides
+ */
 
 
 router.post("/", async (req, res) => {
@@ -39,7 +77,7 @@ router.post("/", async (req, res) => {
       username: verifEmail.username,
       email: verifEmail.email
      }
-     const secretKey = "a"
+    //  const secretKey = "a"
      jwt.sign( payload, secretKey,{expiresIn: 3600}, (err, token)=>{
       if (err) {
     return res.status(400).json(err.message)

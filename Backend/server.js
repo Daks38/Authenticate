@@ -1,33 +1,34 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+const { swaggerUi, swaggerSpec } = require("./swagger");
+require("dotenv").config();
 const router = require("./routes/usersRouter");
 const authToken = require("./middleware/Auth");
 const loginRouter = require("./routes/loginRouter");
 const registerRouter = require("./routes/registerRouter");
 const cors = require('cors')
 const connectDB = require("./configs/db");
-
+const port = process.env.PORT;
 
 const app = express();
 connectDB();
 app.use(cors())
 app.use(express.json());
-const port = process.env.PORT;
+
 
 
 app.get("/", (req, res) => {
-  res.send("Bonjour");
+  res.send("Bienvenue sur l'API de gestion des utilisateurs. Voir la documentation Swagger à /api-docs");
 });
-
+app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 //Routes
 //Register
-app.use("/register", registerRouter)
+app.use("/register", registerRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 //Login
-app.use("/login", loginRouter)
+app.use("/login", loginRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 //User
-app.use("/users", authToken, router)
+app.use("/users", authToken, router,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 app.listen(port, () => {
   console.log(`Serveur lancé sur le http://localhost:${port}`);
