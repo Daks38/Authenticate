@@ -31,5 +31,5 @@ app.use("/login", loginRouter)
 app.use("/users", authToken, router)
 
 app.listen(port, () => {
-  console.log(`Serveur lancé sur le http://localhost:${port}`);
+  console.log(`Serveur lancé sur le https://authback-six.vercel.app/`);
 });
