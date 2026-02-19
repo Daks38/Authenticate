@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 //Routes
 //Register
-app.use("/register", registerRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/register", registerRouter)
 
 //Login
 app.use("/login", loginRouter)
