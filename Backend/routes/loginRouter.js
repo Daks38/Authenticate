@@ -24,11 +24,11 @@ const router = express.Router()
  *             properties:
  *               email:
  *                 type: string
- *                 example: user@email.com
+ *                 example: dodo@email.com
  *               password:
  *                 type: string
- *                 example: password123
- *     responses:
+ *                 example: 12345
+ *     responses: 
  *       200:
  *         description: Utilisateur connecté avec succès
  *         content:
