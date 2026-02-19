@@ -1,5 +1,6 @@
 const express = require("express");
 const { swaggerUi, swaggerSpec } = require("./swagger");
+const swaggerDocument = require("../swagger.json");
 require("dotenv").config();
 const router = require("./routes/usersRouter");
 const authToken = require("./middleware/Auth");
@@ -19,7 +20,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Bienvenue sur l'API de gestion des utilisateurs. Voir la documentation Swagger à /api-docs");
 });
-app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 //Routes
 //Register
 app.use("/register", registerRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
