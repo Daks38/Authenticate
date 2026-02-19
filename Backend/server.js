@@ -20,7 +20,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Bienvenue sur l'API de gestion des utilisateurs. Voir la documentation Swagger à /api-docs");
 });
-app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 //Routes
 //Register
 app.use("/register", registerRouter,swaggerUi.serve, swaggerUi.setup(swaggerSpec))
